@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Feedback</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h3>All Feedbacks</h3>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Comments</th> <!-- Corrected field name -->
+                <th>Submitted At</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fb in feedbacks %}
+            <tr>
+                <td>{{ fb.id }}</td>
+                <td>{{ fb.student_name }}</td>
+                <td>{{ fb.email }}</td>
+                <td>{{ fb.comments }}</td> <!-- Fixed variable name -->
+                <td>{{ fb.submitted_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endblock %}
+</body>
+</html>
